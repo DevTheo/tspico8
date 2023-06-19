@@ -1,0 +1,7 @@
+{
+    "imports": {
+      "commander": "npm:commander@9.3.0",
+      "uglify-js": "npm:uglify-js@3.16.0",
+      "typescript": "npm:typescript@4.7.3"
+    }
+  }
