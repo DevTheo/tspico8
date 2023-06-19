@@ -1,0 +1,11 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "lib": ["es5"],
+    "target": "es6",
+    "outFile": "build/compiled.js",
+    "strict": true,
+    "moduleResolution": "bundler",
+    "module": "AMD"
+  }
+}
