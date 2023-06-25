@@ -51,24 +51,4 @@ export async function getSpritesheetFromImage (imagePath: string) {
     .join("\n");
 
     return pixelsAsString;
-    // const png = new pngjs.PNG({});
-    // png.write(Deno.readFileSync(imagePath));
-    // png.on("parsed", () => {
-    //   logSuccess("Image parsed");
-    //   if (png.width !== spritesheetWidth || png.height !== spritesheetHeight) {
-    //     throw new Error("The spritesheet must be a 128x128 png image");
-    //   }
-
-    //   const pixels = new Array(png.width * png.height)
-    //     .fill(0)
-    //     .map(toClosestColor(png.data));
-
-    //   const pixelsAsString = new Array(png.height)
-    //     .fill(0)
-    //     .map((_, offset) => pixels.slice(offset * spritesheetWidth, offset * spritesheetWidth + spritesheetWidth).join("")) // cut the strings so we get stacks of 128 characters
-    //     .join("\n");
-
-    //   resolve(pixelsAsString);
-     //Deno.readFileSync(imagePath)
-
 }
