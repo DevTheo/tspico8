@@ -1,4 +1,5 @@
-import { Project, ProjectOptions, ts } from "https://deno.land/x/ts_morph/mod.ts";
+//import { Project, ProjectOptions, ts } from "https://deno.land/x/ts_morph/mod.ts";
+import { tsmorph } from "./deps.ts";
 
 export type tscParams = {
     tsFilePaths?: string[]; 
@@ -44,11 +45,11 @@ const tsc_files = (tsFilePaths: string[]): tscResult => {
             declaration: false,
             emitDeclarationOnly: false,
             allowJs: true,
-            target: ts.ScriptTarget.ES5,
-            moduleResolution: ts.ModuleResolutionKind.Node10,
+            target: tsmorph.ts.ScriptTarget.ES5,
+            moduleResolution: tsmorph.ts.ModuleResolutionKind.Node10,
         }
-    } as ProjectOptions;
-    const prj = new Project(opts);
+    } as tsmorph.ProjectOptions;
+    const prj = new tsmorph.Project(opts);
     tsFilePaths.forEach(filePath => {
         prj.addSourceFileAtPath(filePath);
     });
@@ -62,17 +63,17 @@ const tsc_string = (tsCode: string): tscResult => {
             declaration: false,
             emitDeclarationOnly: false,
             allowJs: true,
-            target: ts.ScriptTarget.ES5,
-            moduleResolution: ts.ModuleResolutionKind.Node10,
+            target: tsmorph.ts.ScriptTarget.ES5,
+            moduleResolution: tsmorph.ts.ModuleResolutionKind.Node10,
         }
-    } as ProjectOptions;
-    const prj = new Project(opts);
+    } as tsmorph.ProjectOptions;
+    const prj = new tsmorph.Project(opts);
     prj.createSourceFile("code.ts", tsCode);
 
     return compileCode(prj);
 }
 
-const checkCode = (prj: Project) => {
+const checkCode = (prj: tsmorph.Project) => {
     const checkResults = [] as string[];
     prj.getSourceFiles().forEach(sf => {
         for (const diagnostic of sf.getPreEmitDiagnostics())
@@ -89,11 +90,11 @@ function combineAndRemoveImportsExports(filePaths: string[]): string|undefined {
             declaration: false,
             emitDeclarationOnly: false,
             allowJs: true,
-            target: ts.ScriptTarget.ES5,
-            moduleResolution: ts.ModuleResolutionKind.Node10,
+            target: tsmorph.ts.ScriptTarget.ES5,
+            moduleResolution: tsmorph.ts.ModuleResolutionKind.Node10,
         }
-    } as ProjectOptions;
-    const prj = new Project(opts);
+    } as tsmorph.ProjectOptions;
+    const prj = new tsmorph.Project(opts);
     filePaths.forEach(filePath => {
         prj.addSourceFileAtPath(filePath);
     });
@@ -136,7 +137,7 @@ function combineAndRemoveImportsExports(filePaths: string[]): string|undefined {
     return tsCode.join("\n");
 }
 
-function compileCode(prj: Project): tscResult {
+function compileCode(prj: tsmorph.Project): tscResult {
     prj.enableLogging(true);
 
     const errors = checkCode(prj)
