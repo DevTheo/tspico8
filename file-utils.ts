@@ -13,9 +13,10 @@ export const existsSync = (sysPath: string) => {
       const info = Deno.statSync(sysPath);
       result = (info.isDirectory || info.size > 0);
       console.log(sysPath, result);
+    // deno-lint-ignore no-unused-vars
     } catch (err) {
       // ignoring
-      console.log(`existsSync ignored: ${err.message}`);
+      //console.log(`existsSync ignored: ${err.message}`);
     }
     return result;
 }
