@@ -5,7 +5,7 @@ import { logSuccess } from "./logging.ts";
 const spritesheetWidth = 128;
 const spritesheetHeight = 128;
 const hexBase = 16;
-const pixelDataSize = 4; // red + green + blue + alpha
+const pixelDataSize = 3; // red + green + blue + alpha
 
 const toClosestColor = (pixels: Uint8Array) => (_: unknown, offset: number) => {
   const pixelOffset = offset * pixelDataSize;
@@ -13,6 +13,7 @@ const toClosestColor = (pixels: Uint8Array) => (_: unknown, offset: number) => {
     r: pixels[pixelOffset],
     g: pixels[pixelOffset + 1],
     b: pixels[pixelOffset + 2] // eslint-disable-line no-magic-numbers
+    //a: pixels[pixelOffset + 3]
   };
 
   let minDistance = Number.MAX_VALUE;
