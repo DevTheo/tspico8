@@ -1,4 +1,4 @@
-import {describe, it, assert} from './bdd.js';
+import {describe, it, assert} from './bdd.ts';
 
 describe('tspico8', () => {
     it('should work', () => {

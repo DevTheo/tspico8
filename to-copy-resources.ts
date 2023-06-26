@@ -4,11 +4,6 @@ export type FileResource = {
     data: string;
 }
 
-export type PicoPath = {
-    name: string;
-    path: string;
-}
-
 export const ToCopyResources = {
     files : [ 
         {
@@ -36,5 +31,5 @@ export const ToCopyResources = {
             data: "ew0KICAicGljbzgiOiB7DQogICAgImV4ZWN1dGFibGUiOiAicGF0aC90by9waWNvOC9leGVjdXRhYmxlL2ZpbGUiDQogIH0sDQogICJjb21wcmVzc2lvbiI6IHsNCiAgICAiY29tcHJlc3NlZEZpbGUiOiAiYnVpbGQvY29tcHJlc3NlZC5qcyIsDQogICAgImluZGVudExldmVsIjogMSwNCiAgICAiY29tcHJlc3MiOiBmYWxzZSwNCiAgICAibWFuZ2xlIjogZmFsc2UNCiAgfSwNCiAgIm1hbmdsZU9wdGlvbnMiOiB7DQogICAgInRvcGxldmVsIjogdHJ1ZSwNCiAgICAicmVzZXJ2ZWQiOiBbIl9pbml0IiwgIl91cGRhdGUiLCAiX2RyYXciXQ0KICB9LA0KICAiY29tcHJlc3NPcHRpb25zIjogew0KICAgICJkZWFkX2NvZGUiOiB0cnVlLA0KICAgICJjb25kaXRpb25hbHMiOiBmYWxzZSwNCiAgICAiY29tcGFyaXNvbnMiOiB0cnVlLA0KICAgICJldmFsdWF0ZSI6IHRydWUsDQogICAgImJvb2xlYW5zIjogdHJ1ZSwNCiAgICAibG9vcHMiOiB0cnVlLA0KICAgICJ1bnVzZWQiOiB0cnVlLA0KICAgICJqb2luX3ZhcnMiOiB0cnVlDQogIH0NCn0NCg=="
         }
 
-    ] as Array<FileResource>,
+    ] as Array<FileResource>
 }
